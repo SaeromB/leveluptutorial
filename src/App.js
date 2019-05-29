@@ -6,6 +6,12 @@ class App extends Component {
   state = {
     toggle: true
   }
+  toggle =()=>{
+    this.setState({
+      toggle: !this.state.toggle
+    })
+  }
+
   render(){
     return(
       <div className="App">
@@ -17,7 +23,7 @@ class App extends Component {
             {this.state.toggle &&
             <p>This should show and hide</p>
             }
-          <button>Show / Hide</button>
+          <button onClick={this.toggle}> Show / Hide</button>
       </div>
     )
   }
