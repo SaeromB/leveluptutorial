@@ -3,14 +3,28 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  state = {
+  constructor(props){
+    super(props);
+    console.log('constructor')
+  }
+
+  componentWillMount(){
+    console.log('will mount')
+  }
+
+  componentDidMount(){
+    console.log('mounted')
+  }
+
+  state ={
     toggle: true
   }
-  toggle =()=>{
+  toggle=()=>{
     this.setState({
       toggle: !this.state.toggle
     })
   }
+
 
   render(){
     return(
@@ -20,9 +34,8 @@ class App extends Component {
             <Welcome text="This is React"/>
         </header>
           <p className="App-intro">This is props</p>
-            {this.state.toggle &&
-            <p>This should show and hide</p>
-            }
+          {this.state.toggle &&
+            <p>This should show and hide</p>}
           <button onClick={this.toggle}> Show / Hide</button>
       </div>
     )
@@ -31,11 +44,13 @@ class App extends Component {
 
 class Welcome extends Component {
   render(){
-    const{text}=this.props;
+    const {text,toggle} = this.props;
+    console.log(toggle);
     return(
-      <h1 className="App-title">{text}</h1>
+      <h1 className='App-title'>{text}</h1>
     )
   }
 }
+
 
 export default App;
