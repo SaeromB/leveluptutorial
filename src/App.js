@@ -3,42 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    console.log('constructor')
+  submit = () => {
+    console.log(this.text.value)
   }
+  
 
-  componentWillMount(){
-    console.log('will mount')
-  }
-
-  componentDidMount(){
-    console.log('mounted')
-  }
-
-  state ={
-    toggle: true
-  }
-  toggle=()=>{
-    this.setState({
-      toggle: !this.state.toggle
-    })
-  }
-
-
-  render(){
-    return(
+  render() {
+    return (
       <div className="App">
         <header className="App-header">
-          <img scr={logo} className="App-logo" alt="logo" />
-            <Welcome text="This is React"/>
+          <img src={logo} className="App-logo" alt="logo" />
+          <Welcome text="Welcome to Using Props" />
         </header>
-          <p className="App-intro">This is props</p>
-          {this.state.toggle &&
-            <p>This should show and hide</p>}
-          <button onClick={this.toggle}> Show / Hide</button>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <input type="text" ref={(input) => this.text=input}/>
+        <button onClick={this.submit}>Show Value</button>
       </div>
-    )
+    );
   }
 }
 
