@@ -1,9 +1,7 @@
 /* eslint react/no-did-mount-set-state: 0 */
+// ('https://api.themoviedb.org/3/discover/movie?api_key=65e043c24785898be00b4abc12fcdaae&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1');
 import React, { Component } from 'react';
-import {
-  BrowerRouter as Router,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 
@@ -16,7 +14,7 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=0423ed58e5855d234d54dd1e3efd26eb&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1');
+      const res = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=65e043c24785898be00b4abc12fcdaae&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1');
       const movies = await res.json();
       this.setState({
         movies: movies.results,
@@ -41,10 +39,8 @@ class App extends Component {
   }
 }
 
-
 export default App;
 
-const Test = () => 
-<div>
-  <h1>Test</h1>
-</div>
+const Test = () => (
+  <h1>TEST</h1>
+);
