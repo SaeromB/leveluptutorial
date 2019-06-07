@@ -2,12 +2,14 @@
 // ('https://api.themoviedb.org/3/discover/movie?api_key=65e043c24785898be00b4abc12fcdaae&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1');
 //Switch is like the if function
 //the route checkes if the path exist or not 
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 
 import MoviesList from './MoviesList';
+import MoviesDetail from './MovieDetail';
+
 
 const App = () => (
   <Router>
@@ -19,7 +21,7 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path="/" component={MoviesList} />
-        <Route path="/:id" component={Test} />
+        <Route path="/:id" component={MoviesDetail} />
       </Switch>
     </div>
   </Router>
